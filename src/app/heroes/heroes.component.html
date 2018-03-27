@@ -1,0 +1,20 @@
+<p>--Start of heroes.component.html--</p>
+<h2>A String hero: {{heroString}}</h2>
+
+<h2>{{hero.name | uppercase}} Details</h2>
+<div>
+  <span>id: </span>{{hero.id}}</div>
+<div>
+  <span>name: </span>{{hero.name}}</div>
+<div>
+  <span>weapon: </span>{{hero.weapon}}</div>
+
+<div>
+  <label>Hero's name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+  <label>Hero's weapon:
+    <input [(ngModel)]="hero.weapon" placeholder="weapon">
+  </label>
+</div>
+<p>--End of heroes.component.html--</p>
