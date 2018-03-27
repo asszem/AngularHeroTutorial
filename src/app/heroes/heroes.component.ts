@@ -11,15 +11,10 @@ import {HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
 
   constructor() {}
-  heroString = 'StringHős';
-  heroObject: Hero = {  // Property ('heroObject') declared and instantiated
-    id: 1,
-    name: 'ObjectHős',
-    weapon: 'Pallos'
-  };
-  heroList = HEROES;
+  heroList = HEROES; // Import the mock heroes
   heroSelected: Hero; // Property is declared, but not yet assigned
   onSelect(selectedHero: Hero) {
+    console.log('hero selected:' + selectedHero.id);
     this.heroSelected = selectedHero; // selectedHero object assigned to heroSelected
   }
   ngOnInit() {

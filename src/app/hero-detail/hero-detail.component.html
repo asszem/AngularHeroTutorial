@@ -1,0 +1,21 @@
+<p class="componentBorder">--Start of hero-detail.component.html--</p>
+<!-- The component should display any hero details if the hero exists. -->
+<div *ngIf="heroToDisplay">
+  <h2>{{heroToDisplay.name | uppercase}} Details</h2>
+  <div>
+    <span>id: </span>{{heroToDisplay.id}}</div>
+  <div>
+    <span>name: </span>{{heroToDisplay.name}}</div>
+  <div>
+    <span>weapon: </span>{{heroToDisplay.weapon}}</div>
+
+  <label>Update heroToDisplay</label>
+  <label>name:
+    <input [(ngModel)]="heroToDisplay.name" placeholder="name">
+  </label>
+  <label>weapon:
+    <input [(ngModel)]="heroToDisplay.weapon" placeholder="weapon">
+  </label>
+</div>
+
+<p class="componentBorder">--End of hero-detail.component.html--</p>
