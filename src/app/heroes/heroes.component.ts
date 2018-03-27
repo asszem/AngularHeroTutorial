@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+import {HEROES } from '../mock-heroes';
+
 
 @Component({
   selector: 'app-heroes',
@@ -8,14 +10,18 @@ import { Hero } from '../hero';
 })
 export class HeroesComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
   heroString = 'StringHős';
-  hero: Hero = {
+  heroObject: Hero = {  // Property ('heroObject') declared and instantiated
     id: 1,
     name: 'ObjectHős',
     weapon: 'Pallos'
   };
-
+  heroList = HEROES;
+  heroSelected: Hero; // Property is declared, but not yet assigned
+  onSelect(selectedHero: Hero) {
+    this.heroSelected = selectedHero; // selectedHero object assigned to heroSelected
+  }
   ngOnInit() {
   }
 

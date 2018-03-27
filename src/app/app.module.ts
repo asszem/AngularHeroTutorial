@@ -4,7 +4,7 @@ import {FormsModule } from '@angular/forms'; // for NgModel
 
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesComponent } from './heroes/heroes.component'; // imported by the CLI automatically
 
 
 @NgModule({

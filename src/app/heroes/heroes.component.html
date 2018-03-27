@@ -1,20 +1,52 @@
-<p>--Start of heroes.component.html--</p>
-<h2>A String hero: {{heroString}}</h2>
+<p class="componentBorder">--Start of heroes.component.html--</p>
+<!-- The component should only display the selected hero details if the selectedHero exists. -->
+<!-- When selectedHero is undefined, the ngIf removes the hero detail from the DOM. -->
+<div *ngIf="heroSelected">
+  <h2>{{heroSelected.name | uppercase}} selected</h2>
+  <div>
+    <span>id: </span>{{heroSelected.id}}</div>
+  <div>
+    <span>name: </span>{{heroSelected.name}}</div>
+  <div>
+    <span>weapon: </span>{{heroSelected.weapon}}</div>
 
-<h2>{{hero.name | uppercase}} Details</h2>
-<div>
-  <span>id: </span>{{hero.id}}</div>
-<div>
-  <span>name: </span>{{hero.name}}</div>
-<div>
-  <span>weapon: </span>{{hero.weapon}}</div>
-
-<div>
-  <label>Hero's name:
-    <input [(ngModel)]="hero.name" placeholder="name">
+  <label>Update selected hero</label>
+    <label>name:
+    <input [(ngModel)]="heroSelected.name" placeholder="name">
   </label>
-  <label>Hero's weapon:
-    <input [(ngModel)]="hero.weapon" placeholder="weapon">
+  <label>weapon:
+    <input [(ngModel)]="heroSelected.weapon" placeholder="weapon">
   </label>
 </div>
-<p>--End of heroes.component.html--</p>
+
+<h2>A List of Clickable Hero objects</h2>
+
+<!-- The *ngFor is Angular's repeater directive. It repeats the host element for each element in a list. -->
+<ul class="heroes">
+  <li *ngFor="let heroCurrent of heroList" (click)="onSelect(heroCurrent)"
+  [class.selected]="heroCurrent ===heroSelected"  >
+    <span class="badge">{{heroCurrent.id}}</span>
+    <span>{{heroCurrent.name}} </span>
+    <span>{{heroCurrent.weapon}}</span>
+  </li>
+</ul>
+
+<h2>A String Hero: {{heroString}}</h2>
+<h2>An Object Hero: {{heroObject.name | uppercase}}</h2>
+<div>
+  <span>id: </span>{{heroObject.id}}</div>
+<div>
+  <span>name: </span>{{heroObject.name}}</div>
+<div>
+  <span>weapon: </span>{{heroObject.weapon}}</div>
+
+<div>
+  <!-- Using 'ngModel' for updating object fields through an input field -->
+  <label>Hero's name:
+    <input [(ngModel)]="heroObject.name" placeholder="name">
+  </label>
+  <label>Hero's weapon:
+    <input [(ngModel)]="heroObject.weapon" placeholder="weapon">
+  </label>
+</div>
+<p class="componentBorder">--End of heroes.component.html--</p>
