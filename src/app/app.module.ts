@@ -8,6 +8,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSandboxComponent } from './hero-sandbox/hero-sandbox.component'; // imported by the CLI automatically
 import { HeroService } from './hero.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { HeroService } from './hero.service';
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    HeroSandboxComponent
+    HeroSandboxComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,7 @@ import { HeroService } from './hero.service';
   ],
   // tslint:disable-next-line:max-line-length
   providers: [ // The providers array tells Angular to create a single, shared instance of HeroService and inject into any class that asks for it.
-    HeroService,
+    HeroService, MessageService,
   ],
   bootstrap: [AppComponent]
 })
