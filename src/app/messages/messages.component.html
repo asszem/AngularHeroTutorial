@@ -1,0 +1,9 @@
+<p class="componentBorder">--Start of messages.component.html--</p>
+<!-- Display messages only if the array is not empty. This will disappear after the clear button is pressed -->
+<h3 *ngIf="messageService.messages.length">Messages</h3> 
+<!-- Display a clear button for clearing the message-->
+<button class="clear" (click) = "messageService.clearMessages()">Clear messages</button>
+<!-- Iterate through the messages and display them -->
+<p *ngFor="let currentMessage of messageService.messages">{{currentMessage}}</p>
+
+<p class="componentBorder">--End of messages.component.html--</p>
