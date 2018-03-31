@@ -14,20 +14,34 @@ export class HeroesComponent implements OnInit {
   // Reserve the constructor for simple initialization such as wiring constructor parameters to properties.
   // The constructor shouldn't do anything.
   // It certainly shouldn't call a function that makes HTTP requests to a remote server as a real data service would.
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService) { }
 
   // Declarations
-  heroList: Hero[]; // The values will be retrieved from the heroService
+  heroList: Hero[]; // The values will be retrieved from the heroService in the getHeroes() method during onInit()
   heroSelected: Hero; // The value will be retrieved from the onClick event on a <li> element
 
+  // SYNCHRONOUS CALL
+  // This is a synchronous call, expecting the heroservice instant
+  // getHeroes(): void {
+  // this.heroList = this.heroService.getHeroes();
+  // }
+
+  // ASYNCHRNONOUS CALL
+  // This asynchronous approach will work when the HeroService requests heroes from the server.
+  // This is using .subscribe method on an Observable object which returned by getHeroes()
+  // it waits for the Observable to emit the array of heroes — which could happen now or several minutes from now.
   getHeroes(): void {
-    this.heroList = this.heroService.getHeroes();
+    this.heroService.getHeroesFromService()
+      // Subscribe passes the emitted array to the callback, which sets the component's heroes property.
+      .subscribe(heroesReceivedFromService => this.heroList = heroesReceivedFromService);
   }
 
   onSelect(selectedHero: Hero) {
     console.log('hero selected:' + selectedHero.id);
     this.heroSelected = selectedHero; // selectedHero object assigned to heroSelected
   }
+
+  // This will initialize the heroList object by calling the getHeroes method
   ngOnInit() {
     this.getHeroes();
   }
