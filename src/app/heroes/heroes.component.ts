@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 // import {HEROES } from '../mock-heroes'; -- Heroes not imported anymore, but injected!
 
 @Component({
@@ -14,7 +15,7 @@ export class HeroesComponent implements OnInit {
   // Reserve the constructor for simple initialization such as wiring constructor parameters to properties.
   // The constructor shouldn't do anything.
   // It certainly shouldn't call a function that makes HTTP requests to a remote server as a real data service would.
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   // Declarations
   heroList: Hero[]; // The values will be retrieved from the heroService in the getHeroes() method during onInit()
@@ -38,6 +39,7 @@ export class HeroesComponent implements OnInit {
 
   onSelect(selectedHero: Hero) {
     console.log('hero selected:' + selectedHero.id);
+    this.messageService.add('Hero selected: ' + selectedHero.name + ' id:' + selectedHero.id);
     this.heroSelected = selectedHero; // selectedHero object assigned to heroSelected
   }
 
