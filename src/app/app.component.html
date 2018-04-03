@@ -2,7 +2,13 @@
   <h1>
     {{ title }}
   </h1>
-  <app-heroes></app-heroes>
+  <nav>
+    <a routerLink="/heroesPathInURL">Heroes</a>
+  </nav>
+  <!-- Heroes component was replaced with <router-outlet>, because Heroes will only displayed when the user navigates to it -->
+  <!-- <app-heroes></app-heroes> -->
+  <!-- The RouterOutlet is one of the router directives that became available to the AppComponent because AppModule imports AppRoutingModule which exported RouterModule. -->
+  <router-outlet></router-outlet>
   <app-messages></app-messages>
-  <app-hero-sandbox></app-hero-sandbox>
+  <!-- <app-hero-sandbox></app-hero-sandbox> -->
 <p class="componentBorder">--End of app.component.html--</p>
