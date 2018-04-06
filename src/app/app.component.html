@@ -3,7 +3,9 @@
     {{ title }}
   </h1>
   <nav>
-    <a routerLink="/heroesPathInURL">Heroes</a>
+    <!-- The routerLink is the selector for the RouterLink directive that turns user clicks into router navigations. It's another of the public directives in the RouterModule. -->
+    <a routerLink="/dashboardPathInUrl">Dashboard</a>
+    <a routerLink="/heroesPathInUrl">Heroes</a>
   </nav>
   <!-- Heroes component was replaced with <router-outlet>, because Heroes will only displayed when the user navigates to it -->
   <!-- <app-heroes></app-heroes> -->
