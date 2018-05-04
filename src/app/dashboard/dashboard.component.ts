@@ -8,7 +8,7 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  heroes: Hero[] = []; // A heroes array PROPERTY
   constructor(private heroService: HeroService) {}
 
   ngOnInit() {

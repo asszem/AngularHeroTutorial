@@ -19,7 +19,7 @@ export class HeroesComponent implements OnInit {
 
   // Declarations
   heroList: Hero[]; // The values will be retrieved from the heroService in the getHeroes() method during onInit()
-  heroSelected: Hero; // The value will be retrieved from the onClick event on a <li> element
+  // heroSelected: Hero; // The value will be retrieved from the onClick event on a <li> element
 
   // SYNCHRONOUS CALL
   // This is a synchronous call, expecting the heroservice instant
@@ -37,11 +37,12 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroesReceivedFromService => this.heroList = heroesReceivedFromService);
   }
 
-  onSelect(selectedHero: Hero) {
-    console.log('hero selected:' + selectedHero.id);
-    this.messageService.add('Hero selected: ' + selectedHero.name + ' id:' + selectedHero.id);
-    this.heroSelected = selectedHero; // selectedHero object assigned to heroSelected
-  }
+  // Not used anymore
+  // onSelect(selectedHero: Hero) {
+  //   console.log('hero selected:' + selectedHero.id);
+  //   this.messageService.add('Hero selected: ' + selectedHero.name + ' id:' + selectedHero.id);
+  //   this.heroSelected = selectedHero; // selectedHero object assigned to heroSelected
+  // }
 
   // This will initialize the heroList object by calling the getHeroes method
   ngOnInit() {

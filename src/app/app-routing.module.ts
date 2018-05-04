@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent } from './heroes/heroes.component'; // needs to be imported so it can be fereneced in a route
+import { HeroesComponent } from './heroes/heroes.component'; // needs to be imported so it can be refereneced in a route
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 // Routes tell the router which view to display when a user clicks a link or pastes a URL into the browser address bar.
 
@@ -11,9 +12,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 // You intend to navigate to the HeroesComponent when the URL is something like localhost:4200/heroes.
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default path
   { path: 'heroesPathInUrl', component: HeroesComponent },
   { path: 'dashboardPathInUrl', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default path
+  // The colon (:) in the path indicates that :id is a placeholder for a specific hero id.
+  { path: 'detail/:idInURL', component: HeroDetailComponent }
 ];
 
 // You generally don't declare components in a routing module so you can delete the @NgModule.declarations
