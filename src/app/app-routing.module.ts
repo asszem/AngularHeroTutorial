@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default path
   { path: 'heroesPathInUrl', component: HeroesComponent },
   { path: 'dashboardPathInUrl', component: DashboardComponent },
-  // The colon (:) in the path indicates that :id is a placeholder for a specific hero id.
+  // The colon (:) in the path indicates that :idInURL is a placeholder for a specific hero id.
   { path: 'detail/:idInURL', component: HeroDetailComponent }
 ];
 
