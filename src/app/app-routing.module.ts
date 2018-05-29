@@ -12,7 +12,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 // You intend to navigate to the HeroesComponent when the URL is something like localhost:4200/heroes.
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Default path
+  { path: '', redirectTo: '/dashboardPathInUrl', pathMatch: 'full' }, // Default path
   { path: 'heroesPathInUrl', component: HeroesComponent },
   { path: 'dashboardPathInUrl', component: DashboardComponent },
   // The colon (:) in the path indicates that :idInURL is a placeholder for a specific hero id.

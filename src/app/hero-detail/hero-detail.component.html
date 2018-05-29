@@ -9,7 +9,7 @@
   <div>
     <span>weapon: </span>{{heroToDisplay.weapon}}</div>
 
-  <label>Update heroToDisplay</label>
+  <label>Update Hero's</label>
   <label>name:
     <input [(ngModel)]="heroToDisplay.name" placeholder="name">
   </label>
@@ -19,6 +19,7 @@
 </div>
 <div>
   <button (click)="goBack()">Go Back!</button>
+  <button (click)="save()">Save changes</button>
 </div>
 
 <p class="componentBorder">--End of hero-detail.component.html--</p>

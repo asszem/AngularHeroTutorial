@@ -48,4 +48,24 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
   }
+
+  addHero(name: String, weapon: String): void {
+    name = name.trim();
+    weapon = weapon.trim();
+    if (!name || !weapon) { return; }
+    // When addHero saves successfully, the subscribe callback receives the new hero and pushes it into to the heroes list for display.
+    this.heroService.addHero({ name, weapon} as Hero).subscribe(newHero => this.heroList.push(newHero));
+    console.log(`New hero added: name=${name}, weapon=${weapon} `);
+  }
+
+  deleteHero(heroToDelete: Hero): void {
+    console.log('hero to be deleted ' + heroToDelete.name);
+    this.heroList = this.heroList.filter(currentHero => currentHero !== heroToDelete); // removes the hero to be deleted from the list
+
+    // If you neglect to subscribe(), the service will not send the delete request to the server!
+    // As a rule, an Observable does nothing until something subscribes!
+    // Confirm this for yourself by temporarily removing the subscribe(), clicking "Dashboard", then clicking "Heroes".
+    // You'll see the full list of heroes again.
+    this.heroService.deleteHero(heroToDelete).subscribe(); // actually asking HeroService to delete the hero
+  }
 }

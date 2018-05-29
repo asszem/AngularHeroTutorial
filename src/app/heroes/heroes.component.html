@@ -25,6 +25,22 @@ HeroesComponent - heroSelected property is Binded To with the @Input decorator H
       <span>{{heroCurrent.name}} </span>
       <span class="weapon">{{heroCurrent.weapon}}</span>
     </a>
+    <button class="deleteButton" title="delete hero button" (click)="deleteHero(heroCurrent)">x</button>
   </li>
 </ul>
+
+<div>
+  <label>Add new Hero
+    <br>
+    Name:
+    <input #heroName />
+    <br>
+    Weapon:
+    <input #heroWeapon />
+  </label>
+  <br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addHero(heroName.value, heroWeapon.value); heroName.value=''; heroWeapon.value=''">Add Hero</button>
+</div>
+
 <p class="componentBorder">--End of heroes.component.html--</p>
