@@ -18,24 +18,24 @@ HeroesComponent - heroSelected property is Binded To with the @Input decorator H
 </ul> -->
 
 <!-- Assigning a link for each list item -->
-<ul class="heroes">
-  <li *ngFor="let heroCurrent of heroList">
-    <a routerLink="/detail/{{heroCurrent.id}}">
-      <span class="badge">{{heroCurrent.id}}</span>
-      <span>{{heroCurrent.name}} </span>
-      <span class="weapon">{{heroCurrent.weapon}}</span>
-    </a>
-    <button class="deleteButton" title="delete hero button" (click)="deleteHero(heroCurrent)">x</button>
-  </li>
-</ul>
+<div *ngIf="heroList">
+  <ul class="heroes">
+    <li *ngFor="let heroCurrent of heroList">
+      <a routerLink="/detail/{{heroCurrent.id}}">
+        <span class="badge">{{heroCurrent.id}}</span>
+        <span>{{heroCurrent.name}} </span>
+        <span class="weapon">{{heroCurrent.weapon}}</span>
+      </a>
+      <button class="deleteButton" title="delete hero button" (click)="deleteHero(heroCurrent)">x</button>
+    </li>
+  </ul>
+</div>
 
 <div>
   <label>Add new Hero
-    <br>
-    Name:
+    <br> Name:
     <input #heroName />
-    <br>
-    Weapon:
+    <br> Weapon:
     <input #heroWeapon />
   </label>
   <br>
