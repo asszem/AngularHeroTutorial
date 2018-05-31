@@ -105,5 +105,32 @@ export class HeroService {
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
+
+  /* GET heroes whose name/weapon contains search term
+    searchType should be 'name' or 'weapon'
+  */
+  searchHeroes(searchTerm: string, searchType: string): Observable<Hero[]> {
+    if (!searchTerm.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    console.log(`HeroService: searchHeroes() called. searchTerm:${searchTerm} searchType: ${searchType} `);
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?${searchType}=${searchTerm}`).pipe(
+      tap(_ => this.log(`found heroes matching "${searchTerm}"`)),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

@@ -59,9 +59,9 @@ export class HeroesComponent implements OnInit {
     console.log('Heroes List array size before trying to add a new hero: ' + this.heroList.length);
 
     if (this.heroList.length === 0) { // If heroes array is empty, create the first hero with ID=1
-    this.heroService.addHero({ name, weapon, id: 1 } as Hero).subscribe(newHero => this.heroList.push(newHero));
+      this.heroService.addHero({ name, weapon, id: 1 } as Hero).subscribe(newHero => this.heroList.push(newHero));
     } else { // automatically increment ID
-    this.heroService.addHero({ name, weapon} as Hero).subscribe(newHero => this.heroList.push(newHero));
+      this.heroService.addHero({ name, weapon } as Hero).subscribe(newHero => this.heroList.push(newHero));
     }
     console.log(`New hero added: name=${name}, weapon=${weapon}  `);
   }

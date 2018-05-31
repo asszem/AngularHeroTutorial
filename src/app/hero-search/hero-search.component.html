@@ -1,0 +1,18 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+  Search for name:
+  <!-- As the user types in the search box, a keyup event binding calls the component's search() method with the new search box value. -->
+  <input #searchBoxName id="search-box" (keyup)="search(searchBoxName.value, 'name')" />
+  <br> Search for weapon:
+  <input #searchBoxWeapon id="search-box" (keyup)="search(searchBoxWeapon.value, 'weapon')" />
+
+  <ul class="search-result">
+    <!-- The $ in heroes$ is a convention that indicates heroes$ is an Observable, not an array. -->
+    <!-- The | async is an AsyncPipe which subscribes to an Observable automatically so you won't have to do so in the component class. -->
+    <li *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}} ({{hero.weapon}})
+      </a>
+    </li>
+  </ul>
+</div>
